@@ -3,6 +3,7 @@ layout: post
 title: Why I Take Daily Notes (And How I Do it in Obsidian)
 date: 2024-12-15 23:11 -0600
 categories:
+- Productivity
 - Journaling
 tags:
 - pkm
