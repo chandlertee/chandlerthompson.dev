@@ -33,7 +33,7 @@ I’m a technical leader with a passion for gaming and emerging technologies, in
 ### Some of my Favorite Tools and Technologies
 
 #### Programming Languages
-- Python, JavaScript, TypeScript, Golang, C#, Rust, Bash
+- Python, JavaScript, TypeScript, Ruby, Golang, C#, Rust, Bash
 
 #### Frameworks and Libraries
 - Django, Flask, FastAPI (Backend)  
