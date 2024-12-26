@@ -24,6 +24,7 @@ So, you’ve got your shiny Mac running macOS, and you’re ready to turn it int
 - **Community-driven:** Regular updates and new packages added by a thriving open-source community.
 - **Dependency management:** Automatically installs and manages dependencies for you.
 - **Uninstall-friendly:** Removes software cleanly without leaving orphan files.
+- **Auto-updating casks**: Homebrew automatically updates both command-line tools and applications (casks) installed through it, ensuring you always have the latest versions.
 
 #### Cons
 - **Command-line knowledge required:** A basic understanding of the terminal is needed (but don’t worry, you’ll learn fast!).
@@ -32,6 +33,8 @@ So, you’ve got your shiny Mac running macOS, and you’re ready to turn it int
 ---
 
 ## Installing Homebrew
+
+**Special Note**: Homebrew requires the Xcode Command Line Tools (CLT) to work properly. Historically, these were installed using the command `xcode-select --install`. However, Homebrew will now automatically install Xcode CLT during its setup process (if they are not already installed). I prefer to install with Homebrew, but if you prefer to manage this manually, you can still run `xcode-select --install` before installing Homebrew.
 
 Getting Homebrew set up is as easy as following the instructions on the [Homebrew website](https://brew.sh/).
 
@@ -93,12 +96,6 @@ Here’s where things get fun! Below are some of the most popular and useful pac
 
 ### Developer Tools
 
-- **`git`:** The essential version control system.
-    
-    ```sh
-    brew install git
-    ```
-    
 - **`node`:** Install Node.js for JavaScript development.
     
     ```sh
@@ -109,12 +106,6 @@ Here’s where things get fun! Below are some of the most popular and useful pac
     
     ```sh
     brew install python
-    ```
-    
-- **`gcc`:** Install GNU Compiler Collection for building C/C++ programs.
-    
-    ```sh
-    brew install gcc
     ```
     
 - **`cmake`:** A build system generator essential for compiling and building software.
