@@ -48,7 +48,7 @@ This framing shifts the focus from outcomes to the actionable steps needed to ac
 
 ## Building Momentum: The Anatomy of a Saga
 
-To keep my Sagas grounded in movement, I break them down into [Quarterly Campaigns](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Quarterly%20Note%20Template.md), [Monthly Adventures](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Quarterly%20Note%20Template.md), and [Weekly Quests](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Weekly%20Note%20Template.md). Each level of planning rolls up into the larger Saga, ensuring alignment and progress. For instance:
+To keep my Sagas grounded in movement, I break them down into [Quarterly Campaigns](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Quarterly%20Note%20Template.md), [Monthly Adventures](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Monthly%20Note%20Template.md), and [Weekly Quests](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Weekly%20Note%20Template.md). Each level of planning rolls up into the larger Saga, ensuring alignment and progress. For instance:
 
 - **Saga:** Run my first half marathon.
     - **Quarterly Campaign:** Complete a 12-week training plan.
