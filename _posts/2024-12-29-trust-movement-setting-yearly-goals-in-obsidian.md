@@ -12,11 +12,11 @@ date: 2024-12-29 11:15 -0600
 ---
 <figure>
 	<blockquote class="blockquote">
-	    <p>"Trust only movement. Life happens at the level of events, not of words. Trust movement."</p>
-	  </blockquote>
-	  	    <figcaption class="blockquote-footer">
-			  Alfred Adler
-		  </figcaption>
+		<p>"Trust only movement. Life happens at the level of events, not of words. Trust movement."</p>
+	</blockquote>
+	<figcaption class="blockquote-footer">
+		Alfred Adler
+	</figcaption>
 </figure>
 
 This quote landed like a natural 20 during my [daily journaling session in Obsidian](/posts/why-i-take-daily-notes-in-obsidian/). The meaning behind the quote might be closer to the song "More Than Words" by Extreme... But today, it inspires me to focus on movement in my goals. As I prepare to wrap up 2024 and look ahead to 2025, it’s the perfect time to reflect on the past year’s Sagas, the monumental goals I set, and to start shaping new ones. 
@@ -48,7 +48,7 @@ This framing shifts the focus from outcomes to the actionable steps needed to ac
 
 ## Building Momentum: The Anatomy of a Saga
 
-To keep my Sagas grounded in movement, I break them down into [Quarterly Campaigns](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Quarterly%20Note%20Template.md), [Monthly Adventures](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Monthly%20Note%20Template.md), and [Weekly Quests](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Weekly%20Note%20Template.md). Each level of planning rolls up into the larger Saga, ensuring alignment and progress. For instance:
+To keep my Sagas grounded in movement, I break them down into [Quarterly Campaigns](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Quarterly%20Note%20Template.md), [Monthly Adventures](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Monthly%20Note%20Template.md), and eventually [Weekly Quests](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Weekly%20Note%20Template.md) and [Daily Actions](https://github.com/chandlertee/obsidian-starter/blob/c0a00e0570e973c809b4fa7ebad9386de13e79d1/Templates/Periodic/Daily%20Note%20Template.md). Each level of planning rolls up into the larger Saga, ensuring alignment and progress. For instance:
 
 - **Saga:** Run my first half marathon.
     - **Quarterly Campaign:** Complete a 12-week training plan.
@@ -60,7 +60,7 @@ This structure mirrors the way my journaling templates roll into each other, cre
 
 ---
 
-## Applying "Trust Movement" to 2025
+## Applying "Movement" to 2025
 
 As I fill out my 2025 Yearly Note, I’ll integrate Alfred Adler’s wisdom by ensuring that every Saga is defined by actions. Here’s how:
 
@@ -83,7 +83,7 @@ This reflection ensures that I carry forward the insights and successes while le
 
 ---
 
-## TL;DR: Roll Initiative on Your Sagas
+## TL;DR: Roll Initiative on 2025
 
 Goals without action are like a beautifully drawn map in a TTRPG — visually appealing but useless until the players start exploring. By trusting movement, I’m making sure my Sagas for 2025 aren’t just words. They’re journeys, filled with encounters, challenges, and progress.
 
