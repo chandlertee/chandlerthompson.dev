@@ -8,6 +8,7 @@
 ';
 
 /* append your custom style below */
-blockquote-footer::before {
+// todo: fix bootstrap sass _type.scss
+.blockquote-footer::before {
   content: "— ";
 }
