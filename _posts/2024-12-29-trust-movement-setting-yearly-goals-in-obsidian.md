@@ -1,16 +1,15 @@
 ---
 layout: post
-title: "Trust Movement: Setting Goals for an Action-Oriented Year"
-date: 2024-12-29
+title: 'Trust Movement: Setting Goals for an Action-Oriented Year'
+date: 2024-12-29 10:55 -0600
 categories:
-  - Journaling
+- Journaling
 tags:
-  - obsidian
-  - productivity
-  - journaling
-  - goals
+- obsidian
+- productivity
+- journaling
+- goals
 ---
-
 <figure>
 	<blockquote class="blockquote">
 	    <p>"Trust only movement. Life happens at the level of events, not of words. Trust movement."</p>
