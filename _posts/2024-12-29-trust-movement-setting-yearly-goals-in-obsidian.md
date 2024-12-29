@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 'Trust Movement: Setting Goals for an Action-Oriented Year'
-date: 2024-12-29 10:55 -0600
 categories:
 - Journaling
 tags:
@@ -9,6 +8,7 @@ tags:
 - productivity
 - journaling
 - goals
+date: 2024-12-29 11:15 -0600
 ---
 <figure>
 	<blockquote class="blockquote">
