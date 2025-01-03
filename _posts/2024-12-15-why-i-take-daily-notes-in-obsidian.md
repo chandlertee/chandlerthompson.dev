@@ -44,7 +44,6 @@ When I started looking for a note-taking tool years ago, I had a few requirement
 - **Customizable**: I like tinkering, and Obsidian’s core and community plugins gave me infinite ways to level up. Check this [README](https://github.com/chandlertee/obsidian-starter/blob/59f7dc14192b945be8509a3702f5b2d35279c435/README.md) for more on the community plugins I've installed.
 - **Cross-Device Sync**: Storing notes in a cloud drive lets me seamlessly access them from my laptop, tablet, or phone.
 - **Static Site Integration**: With markdown notes, I can easily publish reflections on my Jekyll-powered blog. Meta, right?
-- **Open Source**: I appreciate that Obsidian supports a thriving open-source ecosystem.
 
 [Obsidian](https://obsidian.md/) checked all these boxes and then some. It’s the Bag of Holding of note-taking tools: versatile, compact, and full of surprises. I've been using Obsidian daily for several years now, and I decided it was time to update my Daily Note Template to keep the process feeling fresh.
 
