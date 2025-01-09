@@ -1,10 +1,11 @@
 ---
 title: Installing and Using Homebrew on macOS
 date: 2024-12-20 17:48 -0600
+layout: post
 categories:
   - Developer Tools
 tags:
-  - macos
+  - mac-os
   - developer-tools
 ---
 

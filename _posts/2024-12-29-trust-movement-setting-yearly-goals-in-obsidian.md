@@ -10,6 +10,7 @@ tags:
 - goals
 date: 2024-12-29 11:15 -0600
 ---
+
 <figure>
 	<blockquote class="blockquote">
 		<p>"Trust only movement. Life happens at the level of events, not of words. Trust movement."</p>
