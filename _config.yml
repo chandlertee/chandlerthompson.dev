@@ -178,7 +178,6 @@ jekyll_compose:
   default_front_matter:
     til:
       layout: "til"
-      refactor: true
 
 defaults:
   - scope:
