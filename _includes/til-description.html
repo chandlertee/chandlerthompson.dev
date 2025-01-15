@@ -1,0 +1,15 @@
+{%- comment -%}
+  Get post description or generate it from the post content.
+{%- endcomment -%}
+
+{%- assign max_length = include.max_length | default: 350 -%}
+
+{% capture description %}
+{% if post.description %}
+    {{- post.description -}}
+{% else %}
+    {{ post.content | truncate: max_length | markdownify }}
+{% endif %}
+{% endcapture %}
+
+{% include refactor-content.html content=description lang=lang %}
