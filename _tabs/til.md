@@ -2,8 +2,7 @@
 layout: default
 title: "TIL"
 icon: fas fa-calendar-day
-order: 4
-refactor: true
+order: 1
 ---
 
 {% include lang.html %}
