@@ -172,7 +172,6 @@ collections:
     sort_by: order
   til:
     output: true
-    layout: post
     permalink: /til/:title/
 
 jekyll_compose:
