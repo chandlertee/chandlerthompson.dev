@@ -17,8 +17,8 @@ js: post
 </div>
 
 {% assign all_pinned = site.til | where: 'pin', 'true' %}
-{% assign all_normal = site.til | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
-{% assign posts = site.til %}
+{% assign all_normal = site.til | where_exp: 'item', 'item.pin != true and item.hidden != true' | reverse %}
+{% assign posts = site.til | reverse %}
 
 <!-- Get pinned posts on current page -->
 
