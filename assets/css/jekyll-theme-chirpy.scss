@@ -12,3 +12,22 @@
 .blockquote-footer::before {
   content: "— ";
 }
+
+.til-preview {
+  border: 0;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 10px;
+}
+.til-preview .card-title a {
+  color: var(--heading-color);
+  border-bottom: 1px solid var(--heading-color);
+  text-decoration: none;
+  display: inline-block;
+}
+.til-preview .card-title a:hover {
+  color: #d2603a !important;
+  border-bottom: 1px solid #d2603a;
+  text-decoration: none;
+  display: inline-block;
+}
