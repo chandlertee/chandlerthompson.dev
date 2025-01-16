@@ -21,6 +21,12 @@ tagline: Thoughts and opinions are my own # it will display as the subtitle
 description: >- # used by seo meta and the atom feed, e.g., A minimal, responsive and feature-rich Jekyll theme for technical writing.
   A personal blog where I share thoughts on software engineering, game design, and whatever else sparks my curiosity.
 
+til_feed:
+  title: Chandler Thompson - TIL
+  description: >-
+    TIL stands for Today I Learned. This is a collection of random bits — created "on the fly" and not edited. 
+    Contents might not be completely accurate.
+
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://chandlerthompson.dev"
