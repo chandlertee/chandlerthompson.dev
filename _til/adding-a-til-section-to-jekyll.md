@@ -14,3 +14,5 @@ collections:
     output: true
     permalink: /til/:title/
 ```
+
+[See the Pull Request](https://github.com/chandlertee/chandlerthompson.dev/pull/15)

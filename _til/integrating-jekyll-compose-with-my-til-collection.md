@@ -15,7 +15,9 @@ jekyll_compose:
       layout: "til"
 ```
 
-This allows me to use the following command to create a TIL.
+This allows me to use the following command to create a TIL with the default frontmatter.
 ```sh
 bundle exec jekyll compose "Some TIL title here" --collection "til"
 ``` 
+
+[See the Pull Request](https://github.com/chandlertee/chandlerthompson.dev/pull/15)
