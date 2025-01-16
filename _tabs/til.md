@@ -3,6 +3,7 @@ layout: default
 title: "TIL"
 icon: fas fa-calendar-day
 order: 1
+js: post
 ---
 
 {% include lang.html %}
@@ -55,7 +56,7 @@ order: 1
 <div id="post-list" class="flex-grow-1 px-xl-1">
   {% for post in posts %}
     <article class="card-wrapper card">
-      <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+      <div class="til-preview row g-0 flex-md-row-reverse">
         {% assign card_body_col = '12' %}
 
         {% if post.image %}
@@ -81,12 +82,18 @@ order: 1
 
         <div class="col-md-{{ card_body_col }}">
           <div class="card-body">
-            <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
-
+            <h1 class="card-title my-2 mt-md-0"><a href="{{ post.url | relative_url }}" >{{ post.title }}</a></h1>
+            
             <div class="card-text content mt-0 mb-3">
               <div class="content">
                 {% include til-description.html %}
               </div>
+              {% assign content_length = post.content | strip_html | number_of_words: 'auto' %}
+              {% assign description_length = description | strip_html | number_of_words: 'auto' %}
+              {% if content_length > description_length %}
+                <p><a href="{{ post.url }}">Read more</a></p>
+              {% endif %}
+
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -108,7 +115,7 @@ order: 1
           </div>
           <!-- .card-body -->
         </div>
-      </a>
+      </div>
     </article>
   {% endfor %}
 </div>

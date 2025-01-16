@@ -6,7 +6,12 @@
 
 <!-- layout specified -->
 
-{% if page.layout == 'post' or page.layout == 'page' or page.layout == 'home' or page.layout == 'til' %}
+{% if page.layout == 'post' 
+  or page.layout == 'page' 
+  or page.layout == 'home' 
+  or page.layout == 'til' 
+  or page.js == 'post' 
+  %}
   {% assign urls = urls | append: ',' | append: site.data.origin[type]['lazy-polyfill'].js %}
 
   {% unless page.layout == 'home' %}
@@ -26,6 +31,7 @@
   or page.layout == 'category'
   or page.layout == 'tag'
   or page.layout == 'til'
+  or page.js == 'post'
 %}
   {% assign locale = include.lang | split: '-' | first %}
 
@@ -62,6 +68,10 @@
   {% else %}
     {% assign js = 'commons' %}
 {% endcase %}
+
+{% if page.js == 'post' %}
+  {% assign js = 'post' %}
+{% endif %}
 
 {% capture script %}/assets/js/dist/{{ js }}.min.js{% endcapture %}
 
