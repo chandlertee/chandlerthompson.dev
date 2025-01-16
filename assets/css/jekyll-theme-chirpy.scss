@@ -31,3 +31,9 @@
   text-decoration: none;
   display: inline-block;
 }
+#post-list .card .til-preview .card-body .card-text.content p {
+  display: block;
+  overflow: show;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
