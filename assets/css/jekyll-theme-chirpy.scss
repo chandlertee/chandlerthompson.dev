@@ -21,11 +21,13 @@
 }
 .til-preview .card-title a {
   color: var(--heading-color);
+  border-bottom: 1px solid var(--text-muted-color);
   text-decoration: none;
   display: inline-block;
 }
 .til-preview .card-title a:hover {
   color: #d2603a !important;
+  border-bottom: 1px solid #d2603a;
   text-decoration: none;
   display: inline-block;
 }
