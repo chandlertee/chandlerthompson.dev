@@ -5,8 +5,8 @@ layout: post
 categories:
   - Developer Tools
 tags:
-  - mac-os
-  - developer-tools
+  - macOS
+  - Developer Tools
 ---
 
 So, you’ve got your shiny Mac running macOS, and you’re ready to turn it into a developer’s paradise. Enter **Homebrew**—the package manager that makes managing software on macOS a breeze. This guide will walk you through why you should use Homebrew, how to install it, and some tips and tricks to get the most out of it.

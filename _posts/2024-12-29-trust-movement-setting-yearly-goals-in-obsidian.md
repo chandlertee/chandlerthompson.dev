@@ -4,10 +4,10 @@ title: 'Trust Movement: Setting Goals for an Action-Oriented Year'
 categories:
 - Journaling
 tags:
-- obsidian
-- productivity
-- journaling
-- goals
+- Obsidian
+- Productivity
+- Journaling
+- Goals
 date: 2024-12-29 11:15 -0600
 ---
 

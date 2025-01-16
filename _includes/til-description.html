@@ -1,0 +1,18 @@
+{%- comment -%}
+  Get TIL description or generate it from the post content.
+{%- endcomment -%}
+
+
+{%- assign max_length = site.til.excerpt_max_length | default: 500 -%}
+
+{% capture description %}
+{% if post.description %}
+    {{- post.description -}}
+{% else %}
+    {{- post.content | truncate: max_length -}}
+{% endif %}
+{% endcapture %}
+
+{% assign description_md = description | markdownify %}
+
+{% include refactor-content.html content=description_md lang=lang %}

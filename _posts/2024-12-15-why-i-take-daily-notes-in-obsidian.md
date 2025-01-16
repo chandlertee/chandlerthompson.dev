@@ -5,9 +5,9 @@ date: 2024-12-15 23:11 -0600
 categories:
   - Journaling
 tags:
-  - obsidian
-  - journaling
-  - productivity
+  - Obsidian
+  - Journaling
+  - Productivity
 ---
 
 In the chaotic adventure of life, it’s easy to get caught up in the whirlwind of daily tasks and forget the epic story we’re trying to tell. That’s where daily notes come in. For me, taking daily notes isn’t just a productivity hack—it’s a way to capture the narrative, track my quests, and reflect on the journey. Think of it as the adventurer’s journal you wish you’d always kept.

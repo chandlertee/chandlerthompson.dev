@@ -6,9 +6,9 @@ layout: post
 categories:
 - Developer Tools
 tags:
-- mac-os
-- jekyll
-- developer-tools
+- macOS
+- Jekyll
+- Developer Tools
 date: 2025-01-08 18:03 -0600
 ---
 So you want to set up a sleek new Jekyll site, but you’re staring at your terminal wondering why Ruby, Bundler, and a bunch of configuration files are involved. Fear not, intrepid site-builder, because I’ve got your back. Let’s walk through how to set up Ruby using `chruby` and Homebrew, install Bundler, and get Jekyll running smoothly on macOS.
