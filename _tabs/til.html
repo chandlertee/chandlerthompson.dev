@@ -8,6 +8,14 @@ js: post
 
 {% include lang.html %}
 
+<div class="content">
+  <h2>Today I Learned (TIL)</h2>
+  <p>
+    <strong>TIL</strong> stands for <strong>Today I Learned</strong>. This is a collection of random bits &mdash; created "on the fly" and not edited. 
+    Contents might not be completely accurate. They have their own <a href="{{ '/til/feed.xml' | absolute_url }}">RSS feed</a> if you're into that.
+  </p>
+</div>
+
 {% assign all_pinned = site.til | where: 'pin', 'true' %}
 {% assign all_normal = site.til | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
 {% assign posts = site.til %}
@@ -48,10 +56,6 @@ js: post
     {% assign posts = posts | push: all_normal[i] %}
   {% endfor %}
 {% endif %}
-
-## Today I Learned (TIL)
-
-**TIL** stands for **Today I Learned**. This is a collection of small, practical things I come across day-to-day, which I thought were worth remembering and sharing with other people. Content and code examples might not be completely accurate.
 
 <div id="post-list" class="flex-grow-1 px-xl-1">
   {% for post in posts %}
