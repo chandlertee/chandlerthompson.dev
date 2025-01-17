@@ -18,68 +18,51 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("shortcuts-modal");
-    const closeButton = document.getElementById("close-shortcuts");
+        const modal = document.getElementById("shortcuts-modal");
+        const closeButton = document.getElementById("close-shortcuts");
+        const showModal = () => {
+            modal.showModal();
+        };
+        const closeModal = () => {
+            modal.close();
+        };
+        const goHome = () => {
+            window.location.href = "/";
+        };
+        const keysPressed = {};
+        document.addEventListener("keydown", (event) => {
+            keysPressed[event.key] = true;
 
-    // Function to show the modal
-    const showModal = () => {
-        modal.showModal();
-    };
+            if (event.key === "?") {
+                event.preventDefault();
+                showModal();
+            } else if (event.key === "/") {
+                event.preventDefault();
+                const searchInput = document.querySelector("input[type='search']");
+                const searchTrigger = document.getElementById('search-trigger');
 
-    // Function to close the modal
-    const closeModal = () => {
-        modal.close();
-    };
-
-    // Function to navigate to the home page
-    const goHome = () => {
-        window.location.href = "/"; // Adjust this URL if your site's home page is different
-    };
-
-    // Track pressed keys
-    const keysPressed = {};
-
-    // Keydown event listener for shortcuts
-    document.addEventListener("keydown", (event) => {
-        keysPressed[event.key] = true;
-
-        if (event.key === "?") {
-            event.preventDefault();
-            showModal();
-        } else if (event.key === "/") {
-            event.preventDefault();
-            const searchInput = document.querySelector("input[type='search']");
-            const searchTrigger = document.getElementById('search-trigger');
-
-            if (searchInput) {
-                if (searchTrigger && searchTrigger.offsetParent !== null) {
-                    searchTrigger.click();
+                if (searchInput) {
+                    if (searchTrigger && searchTrigger.offsetParent !== null) {
+                        searchTrigger.click();
+                    }
+                    searchInput.focus();
+                } else {
+                    alert("Search input not found!");
                 }
-                searchInput.focus();
-            } else {
-                alert("Search input not found!");
+            } else if (keysPressed['g'] && keysPressed['h']) {
+                event.preventDefault();
+                goHome();
             }
-        } else if (keysPressed['g'] && keysPressed['h']) {
+        });
+        document.addEventListener("keyup", (event) => {
+            delete keysPressed[event.key];
+        });
+        closeButton.addEventListener("click", () => {
+            closeModal();
+        });
+        modal.addEventListener("cancel", (event) => {
             event.preventDefault();
-            goHome();
-        }
+            closeModal();
+        });
     });
-
-    // Keyup event listener to reset keys
-    document.addEventListener("keyup", (event) => {
-        delete keysPressed[event.key];
-    });
-
-    // Close button functionality
-    closeButton.addEventListener("click", () => {
-        closeModal();
-    });
-
-    // Accessibility improvement: Close modal with Escape key
-    modal.addEventListener("cancel", (event) => {
-        event.preventDefault();
-        closeModal();
-    });
-});
-
 </script>
