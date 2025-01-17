@@ -1,6 +1,6 @@
 ---
 layout: til
-title: 'Rethinking a Design Decision: The Curb Cut Effect'
+title: 'Rethinking a design decision: the Curb Cut Effect'
 date: 2025-01-16 13:12 -0600
 tags:
 - Design

@@ -4,6 +4,7 @@ title: Integrating Jekyll Compose with my TIL Collection
 date: 2025-01-15 08:53 -0600
 tags:
 - Jekyll
+- TIL
 ---
 
 Since I have a custom layout for the TIL collection, I added default frontmatter for Jekyll Compose for the collection:
