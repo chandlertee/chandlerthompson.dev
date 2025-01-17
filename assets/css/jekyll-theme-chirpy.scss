@@ -13,6 +13,7 @@
   content: "— ";
 }
 
+/* TIL List */
 .til-preview {
   border: 0;
   background: var(--card-bg);
@@ -36,4 +37,52 @@
   overflow: show;
   color: var(--text-color);
   margin-bottom: 1rem;
+}
+
+/* Shortcuts Modal */
+#shortcuts-modal {
+  border-color: var(--toc-popup-border-color);
+  border-width: 1px;
+  border-radius: 10px;
+  color: var(--text-color);
+  background: var(--card-bg);
+  margin-top: 3rem;
+  min-width: 20rem;
+  font-size: 1.05rem;
+}
+
+#shortcuts-modal::backdrop {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+#shortcuts-modal[open] {
+  -webkit-animation: slide-in .3s ease-out;
+  animation: slide-in .3s ease-out;
+}
+
+#shortcuts-modal .header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+#shortcuts-modal .header button i {
+  color: #999;
+}
+#shortcuts-modal button>i {
+  font-size: 1.25rem;
+  vertical-align: middle;
+}
+
+#shortcuts-modal ul {
+  padding: 0;
+  list-style: none;
+}
+
+#shortcuts-modal ul li {
+  margin: 10px 0;
+  font-size: 1rem;
 }
