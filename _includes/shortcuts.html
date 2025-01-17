@@ -1,0 +1,85 @@
+<dialog id="shortcuts-modal" aria-labelledby="shortcuts-modal-title" aria-describedby="shortcuts-modal-desc" class="p-0">
+    <div class="header d-flex flex-row align-items-center justify-content-between">
+        <div class="label py-2 ms-4">Keyboard Shortcuts</div>
+        <button id="close-shortcuts" type="button" class="btn mx-1 my-1 opacity-75" aria-label="Close keyboard shortcuts modal">
+        <i class="fas fa-close"></i>
+        </button>
+    </div>
+    <div id="shortcuts-modal-content" class="px-4 py-3 pb-4">
+        <ul>
+            <li>Show shortcuts <code class="language-plaintext highlighter-rouge"><strong>?</strong></code></li>
+            <li>Close dialogs <code class="language-plaintext highlighter-rouge"><strong>Esc</strong></code></li>
+            <li>Focus on search <code class="language-plaintext highlighter-rouge"><strong>/</strong></code></li>
+            <li>Go Home <code class="language-plaintext highlighter-rouge"><strong>g</strong></code> + <code class="language-plaintext highlighter-rouge"><strong>h</strong></code></li>
+        </ul>
+    </div>
+</dialog>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("shortcuts-modal");
+    const closeButton = document.getElementById("close-shortcuts");
+
+    // Function to show the modal
+    const showModal = () => {
+        modal.showModal();
+    };
+
+    // Function to close the modal
+    const closeModal = () => {
+        modal.close();
+    };
+
+    // Function to navigate to the home page
+    const goHome = () => {
+        window.location.href = "/"; // Adjust this URL if your site's home page is different
+    };
+
+    // Track pressed keys
+    const keysPressed = {};
+
+    // Keydown event listener for shortcuts
+    document.addEventListener("keydown", (event) => {
+        keysPressed[event.key] = true;
+
+        if (event.key === "?") {
+            event.preventDefault();
+            showModal();
+        } else if (event.key === "/") {
+            event.preventDefault();
+            const searchInput = document.querySelector("input[type='search']");
+            const searchTrigger = document.getElementById('search-trigger');
+
+            if (searchInput) {
+                if (searchTrigger && searchTrigger.offsetParent !== null) {
+                    searchTrigger.click();
+                }
+                searchInput.focus();
+            } else {
+                alert("Search input not found!");
+            }
+        } else if (keysPressed['g'] && keysPressed['h']) {
+            event.preventDefault();
+            goHome();
+        }
+    });
+
+    // Keyup event listener to reset keys
+    document.addEventListener("keyup", (event) => {
+        delete keysPressed[event.key];
+    });
+
+    // Close button functionality
+    closeButton.addEventListener("click", () => {
+        closeModal();
+    });
+
+    // Accessibility improvement: Close modal with Escape key
+    modal.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        closeModal();
+    });
+});
+
+</script>
