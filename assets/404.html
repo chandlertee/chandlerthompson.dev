@@ -1,0 +1,343 @@
+---
+layout: page
+title: "404: Page not found"
+permalink: /404.html
+
+redirect_from:
+  - /norobots/
+  - /assets/
+  - /posts/
+---
+
+{% include lang.html %}
+
+<p class="lead">{{ site.data.locales[lang].not_found.statement }}</p>
+
+<div id="game-container" style="border-radius: 25px"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+<script>
+    let game;
+
+    // global game options
+    let gameOptions = {
+        platformStartSpeed: 350,
+        spawnRange: [100, 350],
+        platformSizeRange: [50, 250],
+        playerGravity: 900,
+        jumpForce: 400,
+        playerStartPosition: 200,
+        jumps: 2
+    };
+
+    window.onload = function() {
+        const container = document.getElementById('game-container');
+        const containerWidth = container.offsetWidth;
+        const gameWidth = containerWidth;
+        const gameHeight = Math.floor(containerWidth * 0.75); // Aspect ratio 4:3
+        const styles = getComputedStyle(document.documentElement);
+        const gameBg = styles.getPropertyValue('--sidebar-bg').trim();
+        
+        // object containing configuration options
+        let gameConfig = {
+            type: Phaser.AUTO,
+            width: gameWidth,
+            height: gameHeight,
+            parent: 'game-container', // Run the game in the game-container div
+            scene: playGame,
+            backgroundColor: gameBg,
+            // physics settings
+            physics: {
+                default: "arcade"
+            }
+        };
+        game = new Phaser.Game(gameConfig);
+        window.focus();
+        resize();
+        window.addEventListener("resize", resize, false);
+    };
+
+    // playGame scene
+    class playGame extends Phaser.Scene {
+        constructor() {
+            super("PlayGame");
+            this.gameStarted = false;
+            this.score = 0;
+            this.background404Timer = null; // Renamed variable to be valid
+        }
+
+        preload() {
+            // Preload empty placeholder
+        }
+
+        create() {
+            this.backgroundLayer = this.add.layer(); 
+            this.platformLayer = this.add.layer(); 
+            // Create custom canvas textures for player and platform
+            this.createCanvasTextures();
+            // Background with flying 404s
+            this.background404s = this.add.group();
+            this.background404Timer = this.time.addEvent({
+                delay: 1000,
+                callback: this.addBackground404,
+                callbackScope: this,
+                loop: true,
+                paused: true // Start paused until the game starts
+            });
+
+            // group with all active platforms.
+            this.platformGroup = this.add.group({
+                removeCallback: function(platform) {
+                    platform.scene.platformPool.add(platform);
+                    platform.scene.incrementScore();
+                }
+            });
+
+            // pool
+            this.platformPool = this.add.group({
+                removeCallback: function(platform) {
+                    platform.scene.platformGroup.add(platform);
+                }
+            });
+
+            // number of consecutive jumps made by the player
+            this.playerJumps = 0;
+
+            // adding the player but not enabling physics yet
+            this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height / 2, "playerCanvas");
+            this.player.setGravityY(gameOptions.playerGravity);
+            this.player.setVisible(false);
+
+            // Make the player blink like a cursor
+            this.tweens.add({
+                targets: this.player,
+                alpha: 0,
+                duration: 500,
+                ease: 'Linear',
+                yoyo: true,
+                repeat: -1
+            });
+            
+            const styles = getComputedStyle(document.documentElement);
+            const textColor = styles.getPropertyValue('--heading-color');
+            // Instructions text
+            this.instructionsText = this.add.text(game.config.width / 2, game.config.height / 2, "Click or Space to Start\nClick or Space to Jump\nDouble Click to Double-Jump", {
+                font: "24px sans-serif",
+                fill: textColor,
+                align: "center",
+                resolution: 2
+            }).setOrigin(0.5);
+
+            // Score text
+            this.scoreText = this.add.text(16, 16, `Score: ${this.score}`, {
+                font: "20px sans-serif",
+                fill: textColor,
+                resolution: 2
+            });
+
+            this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+            this.input.on("pointerdown", () => {
+                this.handleInput();
+            });
+
+        
+            // Start game on first click
+            this.input.on("pointerdown", () => {
+                if (!this.gameStarted) {
+                    this.startGame();
+                } else {
+                    this.jump();
+                }
+            });
+        }
+
+        handleInput() {
+            if (!this.gameStarted) {
+                this.startGame();
+            } else {
+                this.jump();
+            }
+        }
+
+        createCanvasTextures() {
+
+            // Get CSS variables
+            const styles = getComputedStyle(document.documentElement);
+            const platformColor = styles.getPropertyValue('--main-bg').trim();
+            const playerColor = styles.getPropertyValue('--heading-color').trim();
+
+            // Create a canvas texture for the platform
+            const platformCanvas = this.textures.createCanvas('platformCanvas', 200, 50);
+            const ctxPlatform = platformCanvas.getContext();
+
+            // Fill the platform with the CSS variable color
+            ctxPlatform.fillStyle = platformColor;
+            ctxPlatform.fillRect(0, 0, 200, 50);
+            platformCanvas.refresh();
+
+            // Create a canvas texture for the player
+            const playerCanvas = this.textures.createCanvas('playerCanvas', 20, 50);
+            const ctxPlayer = playerCanvas.getContext();
+
+            // Fill the player with the CSS variable color
+            ctxPlayer.fillStyle = playerColor;
+            ctxPlayer.fillRect(0, 0, 20, 50);
+            playerCanvas.refresh();
+        }
+
+        addBackground404() {
+            
+            const text404 = this.add.text(
+                game.config.width,
+                Phaser.Math.Between(50, game.config.height - 50),
+                "404",
+                {
+                    font: "20px sans-serif",
+                    fill: "#555555",
+                    resolution: 2
+                }
+            );
+            text404.tween = this.tweens.add({
+                targets: text404,
+                x: -50,
+                duration: 4000,
+                ease: 'Linear',
+                onComplete: () => {
+                    text404.destroy();
+                }
+            });
+            this.background404s.add(text404);
+        }
+
+        startGame() {
+            this.gameStarted = true;
+            this.background404Timer.paused = false; // Resume 404 generation
+            this.score = 0; // Reset score
+            this.scoreText.setText(`Score: ${this.score}`); // Update score display
+            this.instructionsText.setVisible(false);
+
+            // Enable player visibility and add physics
+            this.player.setVisible(true);
+            this.player.body.checkCollision.none = false; // Ensure collision starts enabled
+            this.player.setVelocity(0, 0); // Reset velocity
+            this.player.setY(game.config.height / 2); // Reset position
+
+            // Add a platform to the game
+            this.addPlatform(game.config.width, game.config.width / 2);
+
+            // setting collisions between the player and the platform group
+            this.physics.add.collider(this.player, this.platformGroup);
+
+            // Resume platform movement
+            this.platformGroup.getChildren().forEach(platform => {
+                platform.setVelocityX(gameOptions.platformStartSpeed * -1);
+            });
+
+            // Resume 404 movement
+            this.background404s.getChildren().forEach(text404 => {
+                if (text404.tween) {
+                    text404.tween.resume();
+                }
+            });
+        }
+
+        addPlatform(platformWidth, posX) {
+            let platform;
+            if (this.platformPool.getLength()) {
+                platform = this.platformPool.getFirst();
+                platform.x = posX;
+                platform.active = true;
+                platform.visible = true;
+                this.platformPool.remove(platform);
+            } else {
+                platform = this.physics.add.sprite(posX, game.config.height * 0.8, "platformCanvas");
+                platform.setImmovable(true);
+                platform.setVelocityX(gameOptions.platformStartSpeed * -1);
+                this.platformGroup.setDepth(5);
+                this.platformGroup.add(platform);
+            }
+            platform.displayWidth = platformWidth;
+            this.nextPlatformDistance = Phaser.Math.Between(gameOptions.spawnRange[0], gameOptions.spawnRange[1]);
+        }
+
+        incrementScore() {
+            if (this.gameStarted) {
+                this.score++;
+                this.scoreText.setText(`Score: ${this.score}`);
+            }
+        }
+
+        jump() {
+            if (this.player.body.touching.down || (this.playerJumps > 0 && this.playerJumps < gameOptions.jumps)) {
+                if (this.player.body.touching.down) {
+                    this.playerJumps = 0;
+                }
+                this.player.setVelocityY(gameOptions.jumpForce * -1);
+                this.playerJumps++;
+            }
+        }
+
+        update() {
+            if (Phaser.Input.Keyboard.JustDown(this.spacebar)) {
+                this.handleInput();
+            }
+
+            if (!this.gameStarted) {
+                // Stop platform movement when the game is not active
+                this.platformGroup.getChildren().forEach(platform => {
+                    platform.setVelocityX(0);
+                });
+
+                // Pause 404s
+                this.background404s.getChildren().forEach(text404 => {
+                    if (text404.tween) {
+                        text404.tween.pause();
+                    }
+                });
+                this.background404Timer.paused = true; // Pause 404 generation
+                return;
+            }
+
+            // game over
+            if (this.player.y > game.config.height) {
+                this.gameStarted = false;
+                this.player.setVisible(false);
+                this.instructionsText.setVisible(true);
+                this.instructionsText.setText(`Game Over! Your Score: ${this.score}\nClick or Space to Restart\nClick or Space to Jump\nDouble Click to Double-Jump`);
+            }
+
+            this.player.x = gameOptions.playerStartPosition;
+
+            // recycling platforms
+            let minDistance = game.config.width;
+            this.platformGroup.getChildren().forEach(function(platform) {
+                let platformDistance = game.config.width - platform.x - platform.displayWidth / 2;
+                minDistance = Math.min(minDistance, platformDistance);
+                if (platform.x < -platform.displayWidth / 2) {
+                    this.platformGroup.killAndHide(platform);
+                    this.platformGroup.remove(platform);
+                }
+            }, this);
+
+            // adding new platforms
+            if (minDistance > this.nextPlatformDistance) {
+                var nextPlatformWidth = Phaser.Math.Between(gameOptions.platformSizeRange[0], gameOptions.platformSizeRange[1]);
+                this.addPlatform(nextPlatformWidth, game.config.width + nextPlatformWidth / 2);
+            }
+        }
+    }
+
+    function resize() {
+        const container = document.getElementById('game-container');
+        const containerWidth = container.offsetWidth;
+        const canvas = document.querySelector("canvas");
+
+        if (canvas) {
+            const newWidth = containerWidth;
+            const newHeight = Math.floor(containerWidth * 0.75); // Maintain 4:3 aspect ratio
+            canvas.style.width = `${newWidth}px`;
+            canvas.style.height = `${newHeight}px`;
+        }
+    }
+</script>
